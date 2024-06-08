@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
-import { responsiveStyle } from "@/app/breakpoints";
-import { variable } from "@/app/variables.css";
+import { responsiveStyle } from "@/app/(client)/breakpoints";
+import { variable } from "@/app/(client)/variables.css";
 import boxBackground from "@/assets/bg-cta.svg"
 
 export const styles = {
@@ -18,7 +18,6 @@ export const styles = {
     box: style({
         width: '100%',
         height: '46rem',
-        background: `url(${boxBackground.src}) no-repeat center center`,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',

@@ -2,6 +2,8 @@ import { Inter, Space_Grotesk } from "next/font/google";
 import './app.css'
 import './globals.css'
 import Header from "@/components/Header";
+import { client } from "../../../sanity/lib/client";
+import { urlForImage } from "../../../sanity/lib/image";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -19,10 +21,23 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-title",
 })
 
-export const metadata = {
-  title: "Cloudboost | Ferramenta de E-mail Marketing",
-  description: "Aproveite o potencial do e-mail marketing para ganhar vendas e fortalecer seu relacionamento com clientes. Cloudboost é a ferramenta de e-mail marketing perfeita para sua empresa!",
-};
+export async function generateMetadata() {
+  const settings = await client.fetch(`*[_type == "settings"]`);
+  const data = settings[0];
+  return {
+    title: data.title || 'Cloudboost',
+    description: data.metaDescription || 'Descrição interessante!',
+    openGraph: {
+      images: [`${urlForImage(data.seoImage.asset)}` || ""],
+    },
+    twitter: {
+      title: data.title || 'Cloudboost',
+      images: [`${urlForImage(data.seoImage.asset)}` || ""],
+    }
+  }
+
+
+}
 
 export default function RootLayout({ children }) {
   return (
