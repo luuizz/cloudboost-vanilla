@@ -1,6 +1,6 @@
 import { globalStyle, style } from "@vanilla-extract/css";
-import { variable } from "@/app/variables.css";
-import { responsiveStyle } from "@/app/breakpoints";
+import { variable } from "@/app/(client)/variables.css";
+import { responsiveStyle } from "@/app/(client)/breakpoints";
 
 
 

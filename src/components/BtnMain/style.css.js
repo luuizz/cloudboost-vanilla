@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { variable } from "@/app/variables.css";
+import { variable } from "@/app/(client)/variables.css";
 
 export const styles = {
     btnPrimary: style({

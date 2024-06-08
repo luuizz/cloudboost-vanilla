@@ -6,7 +6,7 @@ export default function CardRecurso({ src, alt, heading, paragraph }) {
   return (
     <div className={styles.cardRecurso}>
         <div className={styles.icon}>
-            <Image src={src} alt={alt} />
+            <img src={src} alt={alt} />
         </div>
 
         <div className={styles.texts}>

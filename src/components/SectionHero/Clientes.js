@@ -2,14 +2,19 @@ import Image from 'next/image'
 import React from 'react'
 import { clientsLogo } from '@/app/data'
 import { styles } from './style.css'
+import { urlForImage } from '../../../sanity/lib/image';
 
-export default function Clientes() {
+export default function Clientes({dataPage}) {
+
+  const data = dataPage.logos;
+
   return (
     <ul className={styles.ulGroup}>
         {
-            clientsLogo.map((item,index) => (
+            data.map((item,index) => (
                 <li key={index}>
-                    <Image src={item.image} alt={item.alt} />
+                    <img src={urlForImage(item.icon.asset)} alt={item.icon.altLogo}
+                    />
                 </li>
             ))
         }
